@@ -1,4 +1,4 @@
-language: scala
+language: scala #test
 env:
   - PLAY_VERSION=2.2.2
 before_script: 
