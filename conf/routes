@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       controllers.Application.index
+
+## me
+GET     /me                                     controllers.Me.index
+
+## my
+GET     /my/status                              controllers.My.status
+GET     /my/tasks                               controllers.My.tasks
+
+## contacts
+
+## rooms
+GET     /rooms                                  controllers.Rooms.index
+POST    /rooms                                  controllers.Rooms.add
+
+GET     /rooms/:roomId                          controllers.Rooms.get(roomId: Long)
+PUT     /rooms/:roomId                          controllers.Rooms.update(roomId: Long)
+DELETE  /rooms/:roomId                          controllers.Rooms.delete(roomId: Long)
+
+GET     /rooms/:roomId/members                  controllers.Rooms.getMembers(roomId: Long)
+PUT     /rooms/:roomId/members                  controllers.Rooms.updateMembers(roomId: Long)
+
+GET     /rooms/:roomId/messages                 controllers.Rooms.getMessages(roomId: Long)
+POST    /rooms/:roomId/messages                 controllers.Rooms.postMessages(roomId: Long)
+
+GET     /rooms/:roomId/messages/:messageId      controllers.Rooms.getMessage(roomId: Long, messageId: Long)
+
+GET     /rooms/:roomId/tasks                    controllers.Rooms.getTasks(roomId: Long)
+POST    /rooms/:roomId/tasks                    controllers.Rooms.postTasks(roomId: Long)
+
+GET     /rooms/:roomId/tasks/:taskId            controllers.Rooms.getTask(roomId: Long, taskId: Long)
+
+GET     /rooms/:roomId/files                    controllers.Rooms.getFiles(roomId: Long)
+
+GET     /rooms/:roomId/files/:fileId            controllers.Rooms.getFile(roomId: Long, fileId: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

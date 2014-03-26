@@ -1,0 +1,13 @@
+@(users: List[Map[Symbol,Any]])(implicit lang: Lang)
+
+@import play.api.i18n.Messages
+
+    @main("Welcome to Play") {
+        @users.map { user =>
+            <dl>
+                <dt>@user('name)</dt>
+                <dd>@user('message)</dd>
+            </dl>
+        }
+        <p>@Messages("index.mario")</p>
+    }
